@@ -1,6 +1,10 @@
-cmake_minimum_required(VERSION 3.24)
-project(A2)
+cmake_minimum_required(VERSION 3.5)
+project(Assignment2)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
-add_executable(A2 main.cpp Common/common_types.h Common/WallsSensor.h Common/DirtSensor.h Common/BatteryMeter.h Common/AbstractAlgorithm.h Algorithm/MyAlgorithm.cpp Algorithm/MyAlgorithm.h Simulation/Simulator.h)
+include_directories(Algorithm Common Simulation)
+
+file(GLOB_RECURSE SOURCES "Algorithm/*.cpp" main.cpp)
+add_executable(A2 ${SOURCES})
